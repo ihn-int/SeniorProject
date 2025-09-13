@@ -1,32 +1,4 @@
-# Senior Project
-
-National Yang Ming Chiao Tung University, Department of Computer Science, Computer Science and Engineering Projects.
-
-A 64-bit version of a RISC-V processor Aquila. For the original version of Aquila, please reference to: [https://github.com/eisl-nctu/aquila](https://github.com/eisl-nctu/aquila)
-
-## Specification
-
-The original Aquila core supports rv32ima_zicsr_zifencei, while the 64-bit version supports rv64ima_zicsr_zifencei.
-
-## Hardware
-
-All HDL code is stored in the "Hardware" directory and is divided into three versions.
-
-1.  tcm_verison
-2. dram_version
-3.  mmu_version
-
-The three versions have corresponding files that describe the changes compared to 32-bit processors.
-
-## Software
-
-All software code is stored in the "Software" directory. This primarily includes Aquila's original C library and bootloader, as well as some test programs. 
-
-A file called "note_sw.md" documents the changes compared to the 32-bit processor.
-
----
-
-# 專題
+# README
 
 國立陽明交通大學資訊工程學系，「資訊工程專題」成果， RISC-V 處理器 Aquila 的 64 位元版本。關於原本的 Aquila 處理器，請參考：[https://github.com/eisl-nctu/aquila](https://github.com/eisl-nctu/aquila)
 
@@ -47,3 +19,9 @@ A file called "note_sw.md" documents the changes compared to the 32-bit processo
 ## 軟體
 
 「Software」資料夾存放所有軟體程式碼。主要包含 Aquila 原有的 C 函式庫和 bootloader ，以及一些用以測試的程式。一份 「note_sw.md」 的檔案紀錄和 32 位元處理器相比的改動內容。
+
+## 驗證
+
+「verilate」資料夾存放標準測試的軟體，主要來自 32 位元處理器使用的 testbench ，以及 riscv-test 。其中執行標準測試的腳本為另外撰寫的 Python 腳本，預設執行在 WSL 系統，可能需要修改以在其他系統使用。
+
+「riscv-tests」資料夾存放 riscv-tests 的程式碼，其中 `env/v/vm.c` 有修改過配置分頁表的行為。
