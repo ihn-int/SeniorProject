@@ -2,6 +2,8 @@
 
 國立陽明交通大學資訊工程學系，「資訊工程專題」成果， RISC-V 處理器 Aquila 的 64 位元版本。關於原本的 Aquila 處理器，請參考：[https://github.com/eisl-nctu/aquila](https://github.com/eisl-nctu/aquila)
 
+目前 repository 僅提供文件說明，程式碼尚未公開，此部分請洽 EISL@NYCU 。
+
 ## 規格
 
 原本的 Aquila 處理器支援 rv32ima_zicsr_zifencei 的 ISA 。 64 位元版本支援 rv64ima_zicsr_zifencei 。
@@ -14,7 +16,7 @@
 2. dram_version
 3.  mmu_version
 
-三個版本中有對應的文件說明和 32 位元處理器相比的改動內容。
+一份「Aquila_hw.md」檔案說明與 32 位元版本相比的改動結果；另一份「Aquila64_mmu.md」說明整合 MMU 之後的改動。
 
 ## 軟體
 
