@@ -38,6 +38,8 @@ asm volatile ("la t0, sp_store");
 asm volatile ("sd sp, 0(t0)");
 ```
 
+`la` 指令會由 assembler 編譯為使用 `auipc` 搭配 `addi` 指令，在任意 PC 位址實現 $\pm$ 2 GiB 的跳躍。
+
 # SPI Driver
 
-SPI 協議 1 次只傳送 1 位元組，就是 `spi.h` 檔案裡的 `spi_txrx(unsigned char)` ，之後轉型為 4 位元組的 `unsigned int` 。 64 位元的 SPI driver 不需要更動程式碼，因為調整為 8 位元組的 `unsigned long` 應該不會提升效能。
+SPI 協議 1 次只傳送 1 位元組，就是 `spi.h` 檔案裡的 `spi_txrx(unsigned char)` ，之後轉型為 4 位元組的 `unsigned int` 。 64 位元的 SPI driver 並未更動程式碼，因為調整為 8 位元組的 `unsigned long` 不會提升效能。

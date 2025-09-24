@@ -1,8 +1,10 @@
 # README
 
-國立陽明交通大學資訊工程學系，「資訊工程專題」成果， RISC-V 處理器 Aquila 的 64 位元版本。關於原本的 Aquila 處理器，請參考：[https://github.com/eisl-nctu/aquila](https://github.com/eisl-nctu/aquila)
+國立陽明交通大學資訊工程學系，「資訊工程專題」成果， 64 位元 RISC-V 處理器實作。
 
-目前 repository 僅提供文件說明，程式碼尚未公開，此部分請洽 EISL@NYCU 。
+採用本校嵌入式智慧系統實驗室（EISL@NYCU）所開發的 Aquila 處理器為基礎，在既有的為架構上修改電路以支援 64 位元的指令。
+
+關於 32 位元的 Aquila 處理器，請參考：[https://github.com/eisl-nctu/aquila](https://github.com/eisl-nctu/aquila)
 
 ## 規格
 
@@ -20,10 +22,18 @@
 
 ## 軟體
 
-「Software」資料夾存放所有軟體程式碼。主要包含 Aquila 原有的 C 函式庫和 bootloader ，以及一些用以測試的程式。一份 「note_sw.md」 的檔案紀錄和 32 位元處理器相比的改動內容。
+「Software」資料夾存放所有軟體程式碼。包含 Aquila 原有的 C 函式庫和 bootloader ，以及用以測試效能的 Dhrystone benchmark 。一份「note_sw.md」的檔案紀錄和 32 位元處理器相比的改動內容。
 
 ## 驗證
 
-「verilate」資料夾存放標準測試的軟體，主要來自 32 位元處理器使用的 testbench ，以及 riscv-test 。其中執行標準測試的腳本為另外撰寫的 Python 腳本，預設執行在 WSL 系統，可能需要修改以在其他系統使用。
+以 Verilator 進行驗證。Testbench 主要來自 32 位元使用之版本， test suite 使用 [riscv-test](https://github.com/riscv-software-src/riscv-tests) 的以下指令子集：
 
-「riscv-tests」資料夾存放 riscv-tests 的程式碼，其中 `env/v/vm.c` 有修改過配置分頁表的行為。
+- mi
+- si
+- ui
+- um
+- ua
+
+測試結果請參考硬體的紀錄文件。
+
+針對啟用虛擬記憶體的版本，修改了 `env/v/vm.c` 檔案中配置 page table 的行為。
